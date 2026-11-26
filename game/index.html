@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKYWARD — Meridian Coast</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+
+<div id="hud">
+  <div id="topbar">
+    <div class="tb-group">
+      <div class="readout"><span class="lab">ALT</span><span id="ro-alt">0 FT</span></div>
+      <div class="readout"><span class="lab">SPD</span><span id="ro-spd">0 KT</span></div>
+      <div class="readout"><span class="lab">HDG</span><span id="ro-hdg">000</span></div>
+    </div>
+    <div class="tb-group">
+      <div class="readout accent"><span id="ro-ring">RING 0/8</span></div>
+      <div class="readout"><span class="lab">TIME</span><span id="ro-time">0:00.0</span></div>
+      <div class="readout"><span class="lab">SCORE</span><span id="ro-score">0</span></div>
+    </div>
+  </div>
+
+  <div id="msg"></div>
+
+  <div id="panel">
+    <canvas id="gauge-speed" width="150" height="150"></canvas>
+    <div id="midstack">
+      <canvas id="horizon" width="230" height="70"></canvas>
+      <div id="thr">
+        <span class="lab">THR</span>
+        <div id="thr-track"><div id="thr-fill"></div></div>
+        <span id="thr-val">0%</span>
+      </div>
+    </div>
+    <canvas id="gauge-alt" width="150" height="150"></canvas>
+  </div>
+</div>
+
+<div id="ov-title" class="overlay">
+  <div class="card">
+    <h1>SKYWARD</h1>
+    <p class="sub">— Meridian Coast —</p>
+    <p class="blurb">Fly the eight glowing rings around the island, then bring her home to the runway.</p>
+    <div class="controls">
+      <div><b>W / ↑</b> climb</div><div><b>S / ↓</b> descend</div>
+      <div><b>A D / ← →</b> bank &amp; turn</div><div><b>Mouse</b> steer (M toggles)</div>
+      <div><b>Shift</b> throttle up</div><div><b>Ctrl</b> throttle down</div>
+      <div><b>P</b> pause</div><div><b>R</b> restart</div>
+    </div>
+    <p class="go">Click or press Enter to fly</p>
+  </div>
+</div>
+
+<div id="ov-pause" class="overlay hidden">
+  <div class="card">
+    <h2>PAUSED</h2>
+    <p class="go">Press P to resume</p>
+  </div>
+</div>
+
+<div id="ov-crash" class="overlay hidden">
+  <div class="card">
+    <h2 class="bad">CRASHED</h2>
+    <p id="crash-reason" class="blurb"></p>
+    <p class="go">Press R to fly again</p>
+  </div>
+</div>
+
+<div id="ov-landed" class="overlay hidden">
+  <div class="card">
+    <h2 class="good">LANDED</h2>
+    <p id="land-stats" class="blurb"></p>
+    <p class="go">Press R to fly again</p>
+  </div>
+</div>
+
+<script src="vendor/three.min.js"></script>
+<script src="js/world.js"></script>
+<script src="js/plane.js"></script>
+<script src="js/course.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
